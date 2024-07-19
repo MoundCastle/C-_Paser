@@ -8,6 +8,6 @@
 
 ![image](https://github.com/user-attachments/assets/5b56ba7e-9177-409d-9c6c-9c55fab710d2)
 
-**语法分析输出：**
+**语法分析输出：**存储了First集、Follow集、预测分析表等
 
 ![image](https://github.com/user-attachments/assets/97eba6fc-57bf-4d57-a742-e21d5f3489aa)
