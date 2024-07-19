@@ -1,0 +1,522 @@
+开始语法分析：  步骤   符号栈   剩余输入串    所用产生式
+2	$program	intID[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:program->declaration-list
+3	$declaration-list	intID[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:declaration-list->declarationdeclaration-list'
+4	$declaration-list'declaration	intID[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:declaration->intIDvar-or-fun
+5	$declaration-list'var-or-funIDint	ID[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+6	$declaration-list'var-or-funID	[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+7	$declaration-list'var-or-fun	[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:var-or-fun->var-declaration
+8	$declaration-list'var-declaration	[NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:var-declaration->[NUM];
+9	$declaration-list';]NUM[	NUM];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:[
+10	$declaration-list';]NUM	];intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:NUM
+11	$declaration-list';]	;intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:]
+12	$declaration-list';	intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:;
+13	$declaration-list'	intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:declaration-list'->declarationdeclaration-list'
+14	$declaration-list'declaration	intID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:declaration->intIDvar-or-fun
+15	$declaration-list'var-or-funIDint	ID(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+16	$declaration-list'var-or-funID	(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+17	$declaration-list'var-or-fun	(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:var-or-fun->fun-declaration
+18	$declaration-list'fun-declaration	(intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:fun-declaration->(params)fun-d
+19	$declaration-list'fun-d)params(	intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:(
+20	$declaration-list'fun-d)params	intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:params->param-list
+21	$declaration-list'fun-d)param-list	intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param-list->paramparam-list'
+22	$declaration-list'fun-d)param-list'param	intID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param->intIDparam'
+23	$declaration-list'fun-d)param-list'param'IDint	ID[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+24	$declaration-list'fun-d)param-list'param'ID	[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+25	$declaration-list'fun-d)param-list'param'	[],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param'->[]
+26	$declaration-list'fun-d)param-list'][	],intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:[
+27	$declaration-list'fun-d)param-list']	,intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:]
+28	$declaration-list'fun-d)param-list'	,intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param-list'->,paramparam-list'
+29	$declaration-list'fun-d)param-list'param,	intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:,
+30	$declaration-list'fun-d)param-list'param	intID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param->intIDparam'
+31	$declaration-list'fun-d)param-list'param'IDint	ID,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+32	$declaration-list'fun-d)param-list'param'ID	,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+33	$declaration-list'fun-d)param-list'param'	,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param'->@
+34	$declaration-list'fun-d)param-list'	,intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param-list'->,paramparam-list'
+35	$declaration-list'fun-d)param-list'param,	intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:,
+36	$declaration-list'fun-d)param-list'param	intID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param->intIDparam'
+37	$declaration-list'fun-d)param-list'param'IDint	ID){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+38	$declaration-list'fun-d)param-list'param'ID	){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+39	$declaration-list'fun-d)param-list'param'	){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param'->@
+40	$declaration-list'fun-d)param-list'	){intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:param-list'->@
+41	$declaration-list'fun-d)	{intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:)
+42	$declaration-list'fun-d	{intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:fun-d->compound-stmt
+43	$declaration-list'compound-stmt	{intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:compound-stmt->{local-declarationsstatement-list}
+44	$declaration-list'}statement-listlocal-declarations{	intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:{
+45	$declaration-list'}statement-listlocal-declarations	intIDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:local-declarations->intIDvar-declarationlocal-declarations
+46	$declaration-list'}statement-listlocal-declarationsvar-declarationIDint	IDintID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:int
+47	$declaration-list'}statement-listlocal-declarationsvar-declarationID	intID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 匹配项:ID
+48	$declaration-list'}statement-listlocal-declarationsvar-declaration	intID;intID;ID=ID;ID=ID[ID];ID=ID+NUM;while(ID<ID){if(ID[ID]<ID){ID=ID[ID];ID=ID;}ID=ID+NUM;}returnID;}voidID(intID[],intID,intID){intID;intID;ID=ID;while(ID<ID-NUM){intID;ID=ID(ID,ID,ID);ID=ID[ID];ID[ID]=ID[ID];ID[ID]=ID;ID=ID+NUM;}}voidID(void){intID;ID=NUM;while(ID<NUM){ID[ID]=ID;ID=ID+NUM;ID(ID,NUM,NUM);ID=NUM;while(ID<NUM){ID(ID[ID]);ID=ID+NUM;}}}$	 产生式:ERROR->
+Terrible Input!  Error: Expected var-declaration but found int 在 4行
+
+Productions:
+program => declaration-list 
+declaration-list => declaration declaration-list' 
+declaration-list' => declaration declaration-list' 
+declaration-list' => @ 
+declaration => int ID var-or-fun 
+var-or-fun => var-declaration 
+var-or-fun => fun-declaration 
+declaration => void ID fun-declaration 
+var-declaration => ; 
+var-declaration => [ NUM ] ; 
+type-specifier => int 
+type-specifier => void 
+fun-declaration => ( params ) fun-d 
+fun-d => compound-stmt 
+fun-d => ; 
+params => param-list 
+params => void 
+param-list => param param-list' 
+param-list' => , param param-list' 
+param-list' => @ 
+param => int ID param' 
+param' => [ ] 
+param' => @ 
+compound-stmt => { local-declarations statement-list } 
+local-declarations => int ID var-declaration local-declarations 
+local-declarations => @ 
+statement-list => statement statement-list 
+statement-list => @ 
+statement => expression-stmt 
+statement => compound-stmt 
+statement => selection-stmt 
+statement => iteration-stmt 
+statement => return-stmt 
+expression-stmt => expression ; 
+expression-stmt => ; 
+selection-stmt => if ( expression ) statement selection-stmt' 
+selection-stmt' => else statement 
+selection-stmt' => @ 
+iteration-stmt => while ( expression ) statement 
+return-stmt => return return-stmt' 
+return-stmt' => ; 
+return-stmt' => expression ; 
+expression => factor setval additive-expression' simple-expression' 
+setval => = expression 
+setval => @ 
+var => ID var' 
+var' => [ expression ] 
+var' => @ 
+simple-expression => additive-expression simple-expression' 
+simple-expression' => relop additive-expression 
+simple-expression' => @ 
+relop => <= 
+relop => < 
+relop => > 
+relop => >= 
+relop => == 
+relop => != 
+additive-expression => term additive-expression' 
+additive-expression' => addop term additive-expression' 
+additive-expression' => @ 
+addop => + 
+addop => - 
+term => factor term' 
+term' => mulop factor term' 
+term' => @ 
+mulop => * 
+mulop => / 
+factor => ( expression ) 
+factor => ID idtail 
+factor => NUM 
+idtail => var' 
+idtail => ( args ) 
+args => arg-list 
+args => @ 
+arg-list => expression arg-list' 
+arg-list' => , expression arg-list' 
+arg-list' => @ 
+
+Productions:WITH terminal or not : 1 非终结符； 0 终结符
+1program => 1declaration-list 
+1declaration-list => 1declaration 1declaration-list' 
+1declaration-list' => 1declaration 1declaration-list' 
+1declaration-list' => 0@ 
+1declaration => 0int 0ID 1var-or-fun 
+1var-or-fun => 1var-declaration 
+1var-or-fun => 1fun-declaration 
+1declaration => 0void 0ID 1fun-declaration 
+1var-declaration => 0; 
+1var-declaration => 0[ 0NUM 0] 0; 
+1type-specifier => 0int 
+1type-specifier => 0void 
+1fun-declaration => 0( 1params 0) 1fun-d 
+1fun-d => 1compound-stmt 
+1fun-d => 0; 
+1params => 1param-list 
+1params => 0void 
+1param-list => 1param 1param-list' 
+1param-list' => 0, 1param 1param-list' 
+1param-list' => 0@ 
+1param => 0int 0ID 1param' 
+1param' => 0[ 0] 
+1param' => 0@ 
+1compound-stmt => 0{ 1local-declarations 1statement-list 0} 
+1local-declarations => 0int 0ID 1var-declaration 1local-declarations 
+1local-declarations => 0@ 
+1statement-list => 1statement 1statement-list 
+1statement-list => 0@ 
+1statement => 1expression-stmt 
+1statement => 1compound-stmt 
+1statement => 1selection-stmt 
+1statement => 1iteration-stmt 
+1statement => 1return-stmt 
+1expression-stmt => 1expression 0; 
+1expression-stmt => 0; 
+1selection-stmt => 0if 0( 1expression 0) 1statement 1selection-stmt' 
+1selection-stmt' => 0else 1statement 
+1selection-stmt' => 0@ 
+1iteration-stmt => 0while 0( 1expression 0) 1statement 
+1return-stmt => 0return 1return-stmt' 
+1return-stmt' => 0; 
+1return-stmt' => 1expression 0; 
+1expression => 1factor 1setval 1additive-expression' 1simple-expression' 
+1setval => 0= 1expression 
+1setval => 0@ 
+1var => 0ID 1var' 
+1var' => 0[ 1expression 0] 
+1var' => 0@ 
+1simple-expression => 1additive-expression 1simple-expression' 
+1simple-expression' => 1relop 1additive-expression 
+1simple-expression' => 0@ 
+1relop => 0<= 
+1relop => 0< 
+1relop => 0> 
+1relop => 0>= 
+1relop => 0== 
+1relop => 0!= 
+1additive-expression => 1term 1additive-expression' 
+1additive-expression' => 1addop 1term 1additive-expression' 
+1additive-expression' => 0@ 
+1addop => 0+ 
+1addop => 0- 
+1term => 1factor 1term' 
+1term' => 1mulop 1factor 1term' 
+1term' => 0@ 
+1mulop => 0* 
+1mulop => 0/ 
+1factor => 0( 1expression 0) 
+1factor => 0ID 1idtail 
+1factor => 0NUM 
+1idtail => 1var' 
+1idtail => 0( 1args 0) 
+1args => 1arg-list 
+1args => 0@ 
+1arg-list => 1expression 1arg-list' 
+1arg-list' => 0, 1expression 1arg-list' 
+1arg-list' => 0@ 
+
+First():
+[: [ 
+expression: ( ID NUM 
+program: int void 
+declaration: int void 
+addop: + - 
+declaration-list': void @ int 
+statement: ; { while if ( return ID NUM 
+declaration-list: int void 
+var-or-fun: ; [ ( 
+fun-declaration: ( 
+while: while 
+var-declaration: [ ; 
+type-specifier: int void 
+params: void int 
+fun-d: { ; 
+arg-list': , @ 
+compound-stmt: { 
+param-list: int 
+param: int 
+setval: = @ 
+idtail: [ ( @ 
+arg-list: ( ID NUM 
+<: < 
+param-list': , @ 
+param': [ @ 
+void: void 
+@: @ 
+return: return 
+local-declarations: int @ 
+mulop: * / 
+statement-list: ( @ return { ; if while ID NUM 
+expression-stmt: ; ( ID NUM 
+selection-stmt: if 
+iteration-stmt: while 
+return-stmt: return 
+<=: <= 
+selection-stmt': else @ 
+relop: <= != < > >= == 
+return-stmt': ; ( ID NUM 
+factor: ( ID NUM 
+additive-expression': @ + - 
+simple-expression': == @ <= < != > >= 
+var: ID 
+var': [ @ 
+simple-expression: ( ID NUM 
+,: , 
+additive-expression: ( ID NUM 
+if: if 
+term: ( ID NUM 
+term': @ * / 
+args: ( @ ID NUM 
+int: int 
+/: / 
+]: ] 
+ID: ID 
+;: ; 
+{: { 
+NUM: NUM 
+$: $ 
+(: ( 
+): ) 
+}: } 
+=: = 
+else: else 
+>: > 
+>=: >= 
+==: == 
+!=: != 
++: + 
+-: - 
+*: * 
+
+Follow():
+expression: + <= ; ) - == < != > >= ] , 
+program: $ 
+declaration: void int $ 
+addop: ( ID NUM 
+declaration-list': $ 
+statement: return ( { ; while if ID NUM } else 
+declaration-list: $ 
+var-or-fun: void int $ 
+fun-declaration: void int $ 
+var-declaration: ( void return while int NUM $ { ; if ID } 
+type-specifier: 
+params: ) 
+fun-d: void int $ 
+arg-list': ) 
+compound-stmt: ( void return while int NUM $ { ; if ID } else 
+param-list: ) 
+param: , ) 
+setval: <= + - == != < > >= ; ) ] , 
+idtail: = - + <= == < != > >= ; ) * / ] , 
+param-list': ) 
+arg-list: ) 
+param': , ) 
+local-declarations: return ( { ; while if ID NUM } 
+mulop: ( ID NUM 
+statement-list: } 
+expression-stmt: ( return { ; if while ID NUM } else 
+selection-stmt: ( return { ; if while ID NUM } else 
+iteration-stmt: ( return { ; if while ID NUM } else 
+return-stmt: ( return { ; if while ID NUM } else 
+selection-stmt': return ( { ; while if ID NUM } else 
+relop: ( ID NUM 
+return-stmt': return ( { ; while if ID NUM } else 
+factor: - = <= + == != < > >= ; ) * / ] , 
+additive-expression': == ; <= != < > ) >= + - ] , 
+simple-expression': <= + ; ) - == != < > >= ] , 
+var: 
+var': - = <= + == != < > >= ; ) * / ] , 
+simple-expression: 
+additive-expression: == ; <= != < > ) >= + - ] , 
+term: <= ; + - == < != > ) >= ] , 
+term': + ; <= - == != < > ) >= ] , 
+args: ) 
+
+Parse Table:
+               addop =>      + :                         addop -> + 
+               addop =>      - :                         addop -> - 
+   declaration-list' =>   void :             declaration-list' -> declaration declaration-list' 
+   declaration-list' =>    int :             declaration-list' -> declaration declaration-list' 
+   declaration-list' =>      $ :             declaration-list' -> @ 
+         declaration =>   void :                   declaration -> void ID fun-declaration 
+         declaration =>    int :                   declaration -> int ID var-or-fun 
+          expression =>     ID :                    expression -> factor setval additive-expression' simple-expression' 
+          expression =>    NUM :                    expression -> factor setval additive-expression' simple-expression' 
+          expression =>      ( :                    expression -> factor setval additive-expression' simple-expression' 
+             program =>   void :                       program -> declaration-list 
+             program =>    int :                       program -> declaration-list 
+           statement => return :                     statement -> return-stmt 
+           statement =>     ID :                     statement -> expression-stmt 
+           statement =>      { :                     statement -> compound-stmt 
+           statement =>      ; :                     statement -> expression-stmt 
+           statement =>    NUM :                     statement -> expression-stmt 
+           statement =>      ( :                     statement -> expression-stmt 
+           statement =>     if :                     statement -> selection-stmt 
+           statement =>  while :                     statement -> iteration-stmt 
+    declaration-list =>   void :              declaration-list -> declaration declaration-list' 
+    declaration-list =>    int :              declaration-list -> declaration declaration-list' 
+          var-or-fun =>      [ :                    var-or-fun -> var-declaration 
+          var-or-fun =>      ; :                    var-or-fun -> var-declaration 
+          var-or-fun =>      ( :                    var-or-fun -> fun-declaration 
+     fun-declaration =>      ( :               fun-declaration -> ( params ) fun-d 
+     var-declaration =>      [ :               var-declaration -> [ NUM ] ; 
+     var-declaration =>      ; :               var-declaration -> ; 
+      type-specifier =>   void :                type-specifier -> void 
+      type-specifier =>    int :                type-specifier -> int 
+              params =>   void :                        params -> void 
+              params =>    int :                        params -> param-list 
+           arg-list' =>      ) :                     arg-list' -> @ 
+           arg-list' =>      , :                     arg-list' -> , expression arg-list' 
+               fun-d =>      { :                         fun-d -> compound-stmt 
+               fun-d =>      ; :                         fun-d -> ; 
+       compound-stmt =>      { :                 compound-stmt -> { local-declarations statement-list } 
+          param-list =>    int :                    param-list -> param param-list' 
+              idtail =>      / :                        idtail -> var' 
+              idtail =>      ] :                        idtail -> var' 
+              idtail =>      [ :                        idtail -> var' 
+              idtail =>      ; :                        idtail -> var' 
+              idtail =>      ( :                        idtail -> ( args ) 
+              idtail =>      ) :                        idtail -> var' 
+              idtail =>      , :                        idtail -> var' 
+              idtail =>      = :                        idtail -> var' 
+              idtail =>     <= :                        idtail -> var' 
+              idtail =>      < :                        idtail -> var' 
+              idtail =>      > :                        idtail -> var' 
+              idtail =>     >= :                        idtail -> var' 
+              idtail =>     == :                        idtail -> var' 
+              idtail =>     != :                        idtail -> var' 
+              idtail =>      + :                        idtail -> var' 
+              idtail =>      - :                        idtail -> var' 
+              idtail =>      * :                        idtail -> var' 
+              setval =>      ] :                        setval -> @ 
+              setval =>      ; :                        setval -> @ 
+              setval =>      ) :                        setval -> @ 
+              setval =>      , :                        setval -> @ 
+              setval =>      = :                        setval -> = expression 
+              setval =>     <= :                        setval -> @ 
+              setval =>      < :                        setval -> @ 
+              setval =>      > :                        setval -> @ 
+              setval =>     >= :                        setval -> @ 
+              setval =>     == :                        setval -> @ 
+              setval =>     != :                        setval -> @ 
+              setval =>      + :                        setval -> @ 
+              setval =>      - :                        setval -> @ 
+               param =>    int :                         param -> int ID param' 
+            arg-list =>     ID :                      arg-list -> expression arg-list' 
+            arg-list =>    NUM :                      arg-list -> expression arg-list' 
+            arg-list =>      ( :                      arg-list -> expression arg-list' 
+         param-list' =>      ) :                   param-list' -> @ 
+         param-list' =>      , :                   param-list' -> , param param-list' 
+              param' =>      [ :                        param' -> [ ] 
+              param' =>      ) :                        param' -> @ 
+              param' =>      , :                        param' -> @ 
+               mulop =>      / :                         mulop -> / 
+               mulop =>      * :                         mulop -> * 
+  local-declarations => return :            local-declarations -> @ 
+  local-declarations =>    int :            local-declarations -> int ID var-declaration local-declarations 
+  local-declarations =>     ID :            local-declarations -> @ 
+  local-declarations =>      { :            local-declarations -> @ 
+  local-declarations =>      ; :            local-declarations -> @ 
+  local-declarations =>    NUM :            local-declarations -> @ 
+  local-declarations =>      ( :            local-declarations -> @ 
+  local-declarations =>      } :            local-declarations -> @ 
+  local-declarations =>     if :            local-declarations -> @ 
+  local-declarations =>  while :            local-declarations -> @ 
+      statement-list => return :                statement-list -> statement statement-list 
+      statement-list =>     ID :                statement-list -> statement statement-list 
+      statement-list =>      { :                statement-list -> statement statement-list 
+      statement-list =>      ; :                statement-list -> statement statement-list 
+      statement-list =>    NUM :                statement-list -> statement statement-list 
+      statement-list =>      ( :                statement-list -> statement statement-list 
+      statement-list =>      } :                statement-list -> @ 
+      statement-list =>     if :                statement-list -> statement statement-list 
+      statement-list =>  while :                statement-list -> statement statement-list 
+     expression-stmt =>     ID :               expression-stmt -> expression ; 
+     expression-stmt =>      ; :               expression-stmt -> ; 
+     expression-stmt =>    NUM :               expression-stmt -> expression ; 
+     expression-stmt =>      ( :               expression-stmt -> expression ; 
+      selection-stmt =>     if :                selection-stmt -> if ( expression ) statement selection-stmt' 
+      iteration-stmt =>  while :                iteration-stmt -> while ( expression ) statement 
+         return-stmt => return :                   return-stmt -> return return-stmt' 
+               relop =>     <= :                         relop -> <= 
+               relop =>      < :                         relop -> < 
+               relop =>      > :                         relop -> > 
+               relop =>     >= :                         relop -> >= 
+               relop =>     == :                         relop -> == 
+               relop =>     != :                         relop -> != 
+     selection-stmt' => return :               selection-stmt' -> @ 
+     selection-stmt' =>     ID :               selection-stmt' -> @ 
+     selection-stmt' =>      { :               selection-stmt' -> @ 
+     selection-stmt' =>      ; :               selection-stmt' -> @ 
+     selection-stmt' =>    NUM :               selection-stmt' -> @ 
+     selection-stmt' =>      ( :               selection-stmt' -> @ 
+     selection-stmt' =>      } :               selection-stmt' -> @ 
+     selection-stmt' =>     if :               selection-stmt' -> @ 
+     selection-stmt' =>   else :               selection-stmt' -> else statement 
+     selection-stmt' =>  while :               selection-stmt' -> @ 
+        return-stmt' =>     ID :                  return-stmt' -> expression ; 
+        return-stmt' =>      ; :                  return-stmt' -> ; 
+        return-stmt' =>    NUM :                  return-stmt' -> expression ; 
+        return-stmt' =>      ( :                  return-stmt' -> expression ; 
+              factor =>     ID :                        factor -> ID idtail 
+              factor =>    NUM :                        factor -> NUM 
+              factor =>      ( :                        factor -> ( expression ) 
+additive-expression' =>      ] :          additive-expression' -> @ 
+additive-expression' =>      ; :          additive-expression' -> @ 
+additive-expression' =>      ) :          additive-expression' -> @ 
+additive-expression' =>      , :          additive-expression' -> @ 
+additive-expression' =>     <= :          additive-expression' -> @ 
+additive-expression' =>      < :          additive-expression' -> @ 
+additive-expression' =>      > :          additive-expression' -> @ 
+additive-expression' =>     >= :          additive-expression' -> @ 
+additive-expression' =>     == :          additive-expression' -> @ 
+additive-expression' =>     != :          additive-expression' -> @ 
+additive-expression' =>      + :          additive-expression' -> addop term additive-expression' 
+additive-expression' =>      - :          additive-expression' -> addop term additive-expression' 
+  simple-expression' =>      ] :            simple-expression' -> @ 
+  simple-expression' =>      ; :            simple-expression' -> @ 
+  simple-expression' =>      ) :            simple-expression' -> @ 
+  simple-expression' =>      , :            simple-expression' -> @ 
+  simple-expression' =>     <= :            simple-expression' -> relop additive-expression 
+  simple-expression' =>      < :            simple-expression' -> relop additive-expression 
+  simple-expression' =>      > :            simple-expression' -> relop additive-expression 
+  simple-expression' =>     >= :            simple-expression' -> relop additive-expression 
+  simple-expression' =>     == :            simple-expression' -> relop additive-expression 
+  simple-expression' =>     != :            simple-expression' -> relop additive-expression 
+  simple-expression' =>      + :            simple-expression' -> @ 
+  simple-expression' =>      - :            simple-expression' -> @ 
+                 var =>     ID :                           var -> ID var' 
+                var' =>      / :                          var' -> @ 
+                var' =>      ] :                          var' -> @ 
+                var' =>      [ :                          var' -> [ expression ] 
+                var' =>      ; :                          var' -> @ 
+                var' =>      ) :                          var' -> @ 
+                var' =>      , :                          var' -> @ 
+                var' =>      = :                          var' -> @ 
+                var' =>     <= :                          var' -> @ 
+                var' =>      < :                          var' -> @ 
+                var' =>      > :                          var' -> @ 
+                var' =>     >= :                          var' -> @ 
+                var' =>     == :                          var' -> @ 
+                var' =>     != :                          var' -> @ 
+                var' =>      + :                          var' -> @ 
+                var' =>      - :                          var' -> @ 
+                var' =>      * :                          var' -> @ 
+   simple-expression =>     ID :             simple-expression -> additive-expression simple-expression' 
+   simple-expression =>    NUM :             simple-expression -> additive-expression simple-expression' 
+   simple-expression =>      ( :             simple-expression -> additive-expression simple-expression' 
+ additive-expression =>     ID :           additive-expression -> term additive-expression' 
+ additive-expression =>    NUM :           additive-expression -> term additive-expression' 
+ additive-expression =>      ( :           additive-expression -> term additive-expression' 
+                term =>     ID :                          term -> factor term' 
+                term =>    NUM :                          term -> factor term' 
+                term =>      ( :                          term -> factor term' 
+               term' =>      / :                         term' -> mulop factor term' 
+               term' =>      ] :                         term' -> @ 
+               term' =>      ; :                         term' -> @ 
+               term' =>      ) :                         term' -> @ 
+               term' =>      , :                         term' -> @ 
+               term' =>     <= :                         term' -> @ 
+               term' =>      < :                         term' -> @ 
+               term' =>      > :                         term' -> @ 
+               term' =>     >= :                         term' -> @ 
+               term' =>     == :                         term' -> @ 
+               term' =>     != :                         term' -> @ 
+               term' =>      + :                         term' -> @ 
+               term' =>      - :                         term' -> @ 
+               term' =>      * :                         term' -> mulop factor term' 
+                args =>     ID :                          args -> arg-list 
+                args =>    NUM :                          args -> arg-list 
+                args =>      ( :                          args -> arg-list 
+                args =>      ) :                          args -> @ 

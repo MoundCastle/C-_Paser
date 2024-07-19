@@ -1,0 +1,176 @@
+program → declaration-list
+declaration-list → declaration declaration-list'
+declaration-list' → declaration declaration-list' 
+declaration-list' → @
+declaration → int ID var-or-fun
+var-or-fun → var-declaration
+var-or-fun → fun-declaration
+declaration → void ID fun-declaration
+var-declaration → ;
+var-declaration → [ NUM ] ;
+type-specifier → int
+type-specifier → void
+fun-declaration → ( params ) fun-d 
+fun-d → compound-stmt
+fun-d → ;
+params → param-list
+params → void
+param-list → param param-list'
+param-list' → , param param-list'
+param-list' → @
+param → int ID param'
+param' → [ ]
+param' → @
+compound-stmt → { local-declarations statement-list }
+local-declarations → int ID var-declaration local-declarations
+local-declarations → @
+statement-list → statement statement-list
+statement-list → @
+statement → expression-stmt 
+statement → compound-stmt
+statement → selection-stmt
+statement → iteration-stmt 
+statement → return-stmt
+expression-stmt → expression ;
+expression-stmt → ;
+selection-stmt → if ( expression ) statement selection-stmt'
+selection-stmt' → else statement
+selection-stmt' → @
+iteration-stmt → while ( expression ) statement
+return-stmt → return return-stmt'
+return-stmt' → ;
+return-stmt' → expression ;
+expression → factor setval additive-expression' simple-expression'
+setval → = expression
+setval → @
+var → ID var'
+var' → [ expression ]
+var' → @
+simple-expression → additive-expression simple-expression'
+simple-expression' → relop additive-expression
+simple-expression' → @
+relop → <=
+relop → <
+relop → >
+relop → >=
+relop → ==
+relop → !=
+additive-expression → term additive-expression'
+additive-expression' → addop term additive-expression'
+additive-expression' → @
+addop → +
+addop → -
+term → factor term'
+term' → mulop factor term'
+term' → @
+mulop → *
+mulop → /
+factor → ( expression )
+factor → ID idtail
+factor → NUM
+idtail → var'
+idtail → ( args )
+args → arg-list
+args → @
+arg-list → expression arg-list'
+arg-list' → , expression arg-list'
+arg-list' → @
+
+
+
+#######################################
+@ 代表 Esilon 空
+读到 # 表示产生式结束，下面留给我写注释用
+
+
+另一个文法 LL（1）
+program → declaration-list
+declaration-list → declaration declaration-list'
+declaration-list' →  @
+declaration-list' → declaration declaration-list' 
+declaration → type-specifier ID declaration' 
+declaration → compound-stmt
+declaration' → ( params )
+declaration' → var-declaration'
+var-declaration → type-specifier ID var-declaration'
+var-declaration' → [ NUM ] ;
+var-declaration' → ;
+type-specifier → int
+type-specifier → void
+fun-declaration → type-specifier ID ( params )
+fun-declaration → compound-stmt
+params → void params' 
+params → int ID param' param-list'
+params' → ID param' param-list' 
+params' → @
+param-list → param param-list'
+param-list' → , param param-list' 
+param-list' → @
+param → type-specifier ID param'
+param' → @ 
+param' → [ ]
+compound-stmt → { local-declarations  statement-list  }
+local-declarations → local-declarations'
+local-declarations' → var-declaration local-declarations' 
+local-declarations' → @
+statement-list → statement-list'
+statement-list' → statement statement-list' 
+statement-list' → @
+statement → expression-stmt 
+statement → compound-stmt 
+statement → selection-stmt 
+statement → iteration-stmt 
+statement → return-stmt
+expression-stmt → expression ; 
+expression-stmt → ;
+selection-stmt → if ( expression ) statement selection-stmt'
+selection-stmt' → else statement
+selection-stmt' → @ 
+iteration-stmt → while ( expression ) statement
+return-stmt → return return-stmt'
+return-stmt' → expression ;
+return-stmt' → ; 
+expression' → = expression 
+expression' → term' additive-expression' simple-expression'
+expression → ID expression'' 
+expression → ( expression ) term' additive-expression' simple-expression' 
+expression → NUM term' additive-expression' simple-expression'
+expression'' → var' expression' 
+expression'' → ( args ) term' additive-expression' simple-expression'
+var → ID var'
+var' → [ expression ]
+var' → @ 
+simple-expression → additive-expression simple-expression'
+simple-expression' → relop additive-expression 
+simple-expression' →  @
+relop → <= 
+relop → < 
+relop → > 
+relop → >= 
+relop → == 
+relop → !=
+additive-expression → term additive-expression'
+additive-expression' → addop term additive-expression'
+additive-expression' → @
+addop → + 
+addop → -
+term → factor term'
+term' → mulop factor term' 
+term' → @
+mulop → * 
+mulop → /
+factor → ID factor' 
+factor → ( expression ) 
+factor → NUM
+factor' → var'
+factor' → ( args )
+call → ID ( args )
+args → arg-list
+args → @
+arg-list → expression arg-list'
+arg-list' → , expression arg-list'
+arg-list' → @
+
+############################
+
+
